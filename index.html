@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JAM MASJID</title>
+  </head>
+  <body>
+    <div class="img" id="imgs">
+      <img src="Dormitory Bina Qurani Islamic Boarding School Bogor.jpg" alt="" class="slide">
+      <img src="Kawasan BQ CITY.jpg" alt="" class="slide">
+      <img src="Kelas dan Asrama Bina Qurani Islamic Boarding School Bogor.jpg" alt="" class="slide">
+    </div>
+    <div id="body1" class="">
+
+      <div class="Main">
+        <div class="Nav">
+          <div class="Bg Logo" style="width: 15%; height: 75%;"><img src="logo (2).png" alt="" width="100%" height="100%"></div>
+          <div class="Bg Nama">
+            <img src="Logo Masjid al Qolam putih.png" alt="" width="400px" class="salto">
+            <div class="tagal" style="width: 100%;">
+              <div class="c tanggal" id="tanggal" style="text-align: center;">1 maret 1945</div>
+              <div class="tanggal">|</div>
+              <div class="c tanggal" id="hijri" >1 ramdan 1H</div>
+            </div>
+          </div>
+
+          <div class="Bg Waktu-Tanggal-Tahun">
+            <div class="c jam" id="jam">Alfath ganteng</div>
+          </div>
+
+        </div>
+
+        
+        <div class="HEFO">
+          <div class="Fot" id="smell">
+            <div class="blk 1" id="subuhs">
+              <!-- <div class="emoji" id="emoji">☀️</div> -->
+              <div>Subuh</div>
+              <div id="subuh"></div>
+            </div>
+            <div class="blk 2" id="syuruqs">
+              <div>Syuruq</div>
+              <div id="syuruq"></div>
+            </div>
+            <div class="blk 3" id="zuhurs">
+              <div>Zuhur</div>
+              <div id="zuhur"></div>
+            </div>
+            <div class="blk 4" id="ashars">
+              <div>Ashar</div>
+              <div id="ashar"></div>
+            </div>
+            <div class="blk 5" id="maghribs">
+              <div>Maghrib</div>
+              <div id="maghrib"></div>
+            </div>
+            <div class="blk 6" id="isyas">
+              <div>Isya</div>
+              <div id="isya" onclick="document.getElementById('body2').classList.toggle('bod-2')"></div>
+            </div>
+          </div>
+          <marquee direction="left" style="transform: translateY(5px); height: 40px; color: white; font-size: 26px;  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(31, 31, 31));">
+            Harap untuk mematikan ponsel anda di masjid | Utamakan Shalat Qobliyah dan Ba'diyah | "Nikmat mana yang engkau dustakan?"
+          </marquee>
+        </div>
+  
+  
+      </div>
+  
+    </div>
+
+    <div id="body2" class="bod-2 hidden sub-h">
+      <div class="body2 hidden sub-h" id="body-2">
+        <div class="containerss">
+          <div id="minsss">11</div>
+          <div id="secsss">00</div>
+        </div>
+
+        <div class="saran" id="saran"  onclick="saran()"></div>
+      </div>
+      <div id="body3" class="bod-3   hidden sub-h">
+        <h1 id="selamat">Selamat menunaikan ibadah shalat Maghrib</h1>
+      </div>
+      <div id="body4" class="bod-4   hidden sub-h">
+        <h1 id="selamat">Harap rapatkan dan luruskan shaf salat</h1>
+      </div>
+
+    </div>
+
+  </body>
+</html>
+<script type="text/javascript"   src="prayTimes.js"></script>
+<script type="text/javascript">
+  const date = new Date() // Buat mendapatkan nilai tanggal, bulan, tahun, jam, detik, menit, DLL tentang waktu terkini+
+  let times = prayTimes.getTimes(date, [-6, 106, 250], 7)
+  document.getElementById('subuh').innerText = times['fajr']
+  document.getElementById('syuruq').innerText = times['sunrise']
+  document.getElementById('zuhur').innerText = times['dhuhr']
+  document.getElementById('ashar').innerText = times['asr']
+  document.getElementById('maghrib').innerText = times['maghrib']
+  document.getElementById('isya').innerText = times['isha']
+ 
+  let checks = 1
+  let batins = 1
+  function trans() {
+
+    switch(checks) {
+      case 1:
+      document.getElementById('body1').classList.add('sub-h')
+      checks++
+      console.log(checks)
+      setTimeout(trans, 1000)
+      break;
+      case 2:
+      document.getElementById("body1").classList.add("hidden")
+      document.getElementById("body2").classList.remove("hidden")
+      checks++
+      setTimeout(trans, 1000)
+      break;
+      case 3:
+      document.getElementById("body2").classList.remove("sub-h")
+      document.getElementById("body-2").classList.remove("hidden")
+      checks++
+      setTimeout(trans, 1000)
+      break;
+      case 4:
+      document.getElementById("body-2").classList.remove("sub-h")
+      checks++
+      setTimeout(trans, 300)
+      break;
+      case 5:
+        timerrrr = 0 // mengasih menit 11
+        secc = 10 // mengasih detik 0
+        timerrr() // memanggil function biar timer jalan
+        saran()
+        console.log("test")
+        checks = 0
+      break;
+      case 6:
+        document.getElementById("body-2").classList.add("sub-h")
+        document.getElementById('body3').classList.remove('hidden')
+        checks++
+        setTimeout(trans, 1000)
+      break;
+      case 7:
+        document.getElementById('body-2').classList.add('hidden')
+        document.getElementById('body3').classList.remove('sub-h')
+        checks++
+        setTimeout(trans, 3000)
+      break;
+      case 8:
+        document.getElementById('body3').classList.add('sub-h')
+        document.getElementById('body4').classList.remove('hidden')
+        checks++
+        setTimeout(trans, 1000)
+      break;
+      case 9:
+        document.getElementById('body3').classList.add('hidden')
+        document.getElementById('body4').classList.remove('sub-h')
+        checks++
+        setTimeout(trans, 3000)
+        break;
+      case 10:
+        document.getElementById('body4').classList.add('sub-h')
+        document.getElementById('body2').classList.add('sub-h')
+        checks++
+        setTimeout(trans, 1000)
+        break;
+      case 11:
+        document.getElementById('body4').classList.add('hidden')
+        document.getElementById('body2').classList.add('hidden')
+        document.getElementById('body1').classList.remove('hidden')
+        checks++
+        setTimeout(trans, 1000)
+        break;
+      case 12:
+        document.getElementById('body1').classList.remove('sub-h')
+        checks++
+        time()
+        break;
+    }
+
+  }
+ 
+
+
+
+  setInterval(auto, 1000)
+  function auto() {
+    let hours = date.getHours() // untuk mendapatkan jam sekarang
+    let mins = date.getMinutes() // untuk mendapatkan menit sekarang
+    let hourss = update(hours)
+    let minss = update(mins)
+    let a = hourss + ':' + minss
+
+    if (a > subuh && a < syuruq) {
+      document.getElementById('subuhs').style.backgroundColor = "blue"
+      document.getElementById('subuhs').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Subuh"
+    } else if (a > syuruq && a < zuhur) {
+      document.getElementById('syuruqs').style.backgroundColor = "blue"
+      document.getElementById('syuruqs').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Syuruq"
+    } else if (a > zuhur && a < ashar) {
+      document.getElementById('zuhurs').style.backgroundColor = "blue"
+      document.getElementById('zuhurs').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Zuhur"
+    } else if (a > ashar && a < maghrib) {
+      document.getElementById('ashars').style.backgroundColor = "blue"
+      document.getElementById('ashars').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Ashar"
+    } else if (a > maghrib && a < isya) {
+      document.getElementById('maghribs').style.backgroundColor = "blue"
+      document.getElementById('maghribs').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Maghrib"
+    } else {
+      document.getElementById('isyas').style.backgroundColor = "blue" 
+      document.getElementById('isyas').style.border = "1px white solid"
+      document.getElementById('selamat').innerText = "Selamat menunaikan ibadah shalat Isya"
+    }
+  }
+
+  const imgs = document.getElementById("imgs")
+  const img = document.querySelectorAll("#imgs img")
+
+  let idx = 0
+
+  let interval = setInterval(run, 5000)
+
+  let count = 0
+
+  function run() {
+    idx++
+    changeImage()
+  }
+
+  function changeImage() {
+    if (idx > img.length - 1) {
+      idx = 0
+    } else if (idx < 0) {
+      idx = img.length - 1
+    }
+
+      for (let i = 0; i < img.length; i++) {
+
+        if (i == count) {
+          img[i].style.opacity = `1`
+
+        } else {
+          img[i].style.opacity = `0`
+        }
+
+      }
+
+      count++
+      if (count >= 3) {
+        count = 0
+
+      }
+  }
+
+  function resetint() {
+    clearInterval(interval)
+    interval = setInterval(run, 5000)
+  }
+
+
+
+
+
+  let year = date.getFullYear() // untuk mendapatkan tahun sekarang
+  let month = date.getMonth() + 1 // untuk mendapatkan bulan sekarang dengan nilai nomor (+1 buat switch dibawah ini)
+  let day = date.getDate() // untuk mendapatkan tanggal sekarang
+
+  switch(month) { // switch buat mengganti nilai month yang dari nomor menjadi bulan
+    case 1:
+      month = "Januari"
+      break;
+
+    case 2:
+      month = "Februari"
+      break;
+
+    case 3:
+      month = "Maret"
+      break;
+
+    case 4:
+      month = "April"
+      break;
+
+    case 5:
+      month = "Mei"
+      break;
+
+    case 6:
+      month = "Juni"
+      break;
+
+    case 7:
+      month = "Juli"
+      break;
+
+    case 8:
+      month = "Agustus"
+      break;
+
+    case 9:
+      month = "September"
+      break;
+
+    case 10:
+      month = "Oktober"
+      break;
+
+    case 11:
+      month = "November"
+      break;
+    
+    case 12:
+      month = "Desember"
+      break;
+    default:
+      month = "ERROR:404"
+  }
+
+  document.getElementById("tanggal").innerText = day + "  " + month + " " + year // buat memasukkan nilai letnye kedalam html (h1)
+
+  // timer & detik mulai sini
+  const subuh = document.getElementById("subuh").innerText // untuk mengambil waktu azan subuh
+  const syuruq = document.getElementById("syuruq").innerText // untuk mengambil waktu azan zuhur
+  const zuhur = document.getElementById("zuhur").innerText // untuk mengambil waktu azan zuhur
+  const ashar = document.getElementById("ashar").innerText // untuk mengambil waktu azan ashar
+  const maghrib = document.getElementById("maghrib").innerText // untuk mengambil waktu azan maghrib
+  const isya = document.getElementById("isya").innerText // untuk mengambil waktu azan isya
+  let timerrrr = 0 // untuk timer (menit) waktu iqomah (liat dibawah)
+  let secc = 0 // untuk timer (detik) waktu iqomah (liat dibawah)
+
+  function time() { // function buat detik
+    console.log(subuh, syuruq, zuhur, ashar, maghrib, isya)
+    const date = new Date() // bikin dua date karena gak tau kenapa detiknya gak jalan kalau cuma ada 1
+    let hour = date.getHours() // untuk mendapatkan jam sekarang
+    let min = date.getMinutes() // untuk mendapatkan menit sekarang
+    let sec = date.getSeconds() // untuk mendapatkan detik sekarang
+    hour = update(hour) // update function buat menambahkan 0 didepan jika valuenya hanya 1 digit (liat dibawah)
+    min = update(min)
+    sec = update(sec)
+    document.getElementById("jam").innerText = hour + ":" + min + ":" + sec // buat memasukkan nilai letnye kedalam html (h1)
+    let a = hour +":" + min // let ini buat mengtrigger waktu iqamah
+    if (a == subuh || a == syuruq || a == zuhur || a == ashar || a == maghrib || a == isya) { //mengtrigger waktu iqamah jika let a sama dengan waktu azan subuh, zuhur, ashar, maghrib, isya
+      batins = 1
+      trans()
+    } else { // mengeksekusi else jika if pertama tidak dijalankan
+      setTimeout(time, 1000);
+    }
+
+
+  }
+  
+  let randoms = 1
+  setInterval(saran, 10000)
+  saran()
+  function saran() {
+    let saran = document.getElementById('saran')
+    switch(randoms) {
+      case 1:
+        saran.innerText = `tiga golongan yang doanya tidak akan ditolak oleh Allah SWT. tiga golongan tersebut adalah pemimpin yang adil, orang yang berpuasa sampai ia berbuka, dan orang yang terzalimi.`
+        break;
+      case 2:
+        saran.innerText = `طَلَبُ الْعِلْمِ فَرِيْضَةٌ عَلَى كُلِّ مُسْلِمٍ. “Menuntut ilmu itu wajib atas setiap Muslim” (HR. Ibnu Majah dari Anas RA).`
+        break;
+      case 3:
+        saran.innerText = `Kebersihan adalah sebagian dari iman.`
+        break;
+      default:
+        saran.innerText = "ERROR"
+        break;
+    }
+    if (randoms == 3) {
+      randoms = 1
+    } else {
+      randoms++
+    }
+  }
+
+  // timerrrr = 11 // mengasih menit 11
+  // secc = 0 // mengasih detik 0
+  // timerrr()
+
+  function timerrr() { // membuat function biar timer waktu iqamah jalan
+    let s = document.getElementById('secsss')
+    let minsss = document.getElementById('minsss')
+
+    function timerr() { // membuat function biar timer berjalan
+      if (secc <= 0) { // membuat if jika let secc (detik) dibawah atau sama dengan 0 maka coding yang dibawah ini dijalankan
+        secc = 59 // diulang detiknya
+        timerrrr -= 1 // menitnya dikurangi 1
+        console.info(secc) // buat ngecheck
+      } else { // membuat else jika if nya tidak dijalankan
+        secc-- // detiknya dikurangi 1
+      }
+      let timerrrrr = update(timerrrr) // memasukkan menit kedalam function
+      let seccc = update(secc) // memasukkan detik kedalam function
+      minsss.innerText = timerrrrr
+      s.innerText = seccc
+      console.log(timerrrrr, seccc)
+    }
+
+    if (timerrrr == "00" && secc == "3") {
+      let audio = new Audio('mixkit-simple-countdown-922.wav')
+      audio.play()
+    }
+
+    if (timerrrr != "00" && secc != "00" || timerrrr == "00" && secc != "00" || timerrrr != "00" && secc == "00") { // membuat if biar diulang terus menjadi 0 timernya
+      setTimeout(timerr, 1000) // diulang function timerr
+      setTimeout(timerrr, 1000); // diulang function timerrr
+    } else {
+      console.log('triggered')
+      checks = 6
+      trans()
+    }
+  }
+
+  function update(t) { // update function biar value yang digitnya hanya 1 ditambahkan 0 di depannya
+     if (t < 10) { // jika param t lebih kecil dari 10 (digitnya hanya 1) maka "0" + t maksudnya nilai t ditambah 0 didepannya
+     return "0" + t;
+     }
+     else { // jika param t lebih besar atau sama dengan 10 (digitnya lebih dari 1) maka return t (dibalikin dengan nilai yang sama)
+     return t;
+     }
+    }
+
+  time() // memanggil function detik
+  //timer & detik akhir disini
+
+
+  // dibawah ini dari google jadi silahkan menerjemahkannya sendiri (gak mudeng 😅)
+  function myHijriDateFormat(date) {
+    let startDate= new Date(date),
+        c= 'id-u-ca-islamic-umalqura-nu-latn',  // use 'islamic-umalqura' calendar for the islamic date
+        n='numeric',
+        iDay  =new Intl.DateTimeFormat(c,{day  :n}).format(startDate),
+        iMonth=new Intl.DateTimeFormat(c,{month:'long'}).format(startDate),
+        iYear =new Intl.DateTimeFormat(c,{year :n}).format(startDate).split(" ")[0];
+    
+        return iDay+" "+iMonth+", "+iYear;
+    }
+  document.getElementById("hijri").textContent = myHijriDateFormat(new Date(Date.now()));
+</script>
