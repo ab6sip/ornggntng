@@ -41,13 +41,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 200px;
+  font-size: 150px;
   margin-right: 50px;
   margin-bottom: 50px;
 }
 
 .saran {
-  font-size: 50px;
+  font-size: 35px;
   width: 75%;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
