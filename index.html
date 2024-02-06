@@ -22,7 +22,7 @@
             <div class="tagal" style="width: 100%;">
               <div class="c tanggal" id="tanggal" style="text-align: center;">1 maret 1945</div>
               <div class="tanggal">|</div>
-              <div class="c tanggal" id="hijri" >1 ramdan 1H</div>
+              <div class="c tanggal" id="hijri" style="text-align: center;">1 ramdan 1H</div>
             </div>
           </div>
 
@@ -131,8 +131,8 @@
       setTimeout(trans, 300)
       break;
       case 5:
-        timerrrr = 0 // mengasih menit 11
-        secc = 10 // mengasih detik 0
+        timerrrr = 11 // mengasih menit 11
+        secc = 0 // mengasih detik 0
         timerrr() // memanggil function biar timer jalan
         saran()
         console.log("test")
@@ -448,5 +448,4 @@
         return iDay+" "+iMonth+", "+iYear;
     }
   document.getElementById("hijri").textContent = myHijriDateFormat(new Date(Date.now()));
-  trans()
 </script>
