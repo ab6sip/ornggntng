@@ -41,13 +41,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 200px;
   margin-right: 50px;
   margin-bottom: 50px;
 }
 
 .saran {
-  font-size: 20px;
+  font-size: 50px;
   width: 75%;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -127,6 +127,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
+  transition: opacity 1s ease-in-out;
 }
 
 
